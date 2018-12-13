@@ -1,8 +1,8 @@
 <template>
-  <div v-bind:class="{card: true, flip: flipped}" v-on:click="flipCard">
+  <div v-bind:class="{card: true, flip: selected}" v-on:click="flipCard">
     <div class="inner">
       <div class="card-front">
-        CARDXX value {{value}}
+        {{value}}
       </div>
       <div class="card-back">
         <img src="https://developers.giphy.com/static/img/giphy_sdks.8a3a16f623df.gif"/>
@@ -63,7 +63,8 @@
 export default {
   name: "Card",
   props: {
-    value: String
+    value: Number,
+    selected: Boolean
   },
   data: function() {
     return {
@@ -73,8 +74,8 @@ export default {
   methods: {
     flipCard: function(event) { 
       this.flipped = !this.flipped;
-      console.log(this.flipped);
-      this.$store.dispatch("card/toggle", {
+      console.log(event);
+      this.$store.dispatch("card/select", {
             value: this.value
           });
 
