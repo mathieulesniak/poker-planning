@@ -13,13 +13,15 @@
   * {
     box-sizing: border-box;
   }
-
+  
   .cardsList {
     background: red;
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
 
-    justify-content: space-between;
+    // justify-content: space-between;
+    // align-content: stretch;
     width: 500px;
     
     .hidden {
@@ -27,11 +29,11 @@
     }
 
     .card-container {
-      flex: 1;
-       flex-grow: 1;
+      // flex: 1;
       background-color: blue;
       max-width: 30%;
-      
+      width: 30%;
+      height: 30%;
       margin: 10px;
     }
   }

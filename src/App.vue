@@ -49,6 +49,10 @@
   text-align: center;
   color: #2c3e50;
 }
+
+.md-app {
+  height: calc(1000px)
+}
 #nav {
   padding: 30px;
   a {

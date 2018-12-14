@@ -5,7 +5,8 @@
         {{value}}
       </div>
       <div class="card-back">
-        <img src="https://developers.giphy.com/static/img/giphy_sdks.8a3a16f623df.gif"/>
+        <img :src="cardCover" />
+        <!-- <img src="https://developers.giphy.com/static/img/giphy_sdks.8a3a16f623df.gif"/> -->
       </div>
     </div>
   </div>
@@ -15,8 +16,8 @@
 <style lang="scss" scoped>
 .card {
   background-color: transparent;
-  width: 100px;
-  height: 100px;
+  min-width: 100px;
+  min-height: 100px;
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
@@ -58,7 +59,7 @@
 
 
 <script>
-
+import { mapState } from "vuex";
 
 export default {
   name: "Card",
@@ -68,12 +69,24 @@ export default {
   },
   data: function() {
     return {
-      flipped: false
+      flipped: false,
+      source: null,
     }
   },
+  computed: {
+    ...mapState({
+      cardCover: state => state.card.cardCover
+    })
+  },
   methods: {
+    fetchGif: function() {
+      this.$store.dispatch("card/fetchGif");
+    },
     flipCard: function(event) { 
       this.flipped = !this.flipped;
+      if (this.flipped) {
+        this.fetchGif()
+      }
       console.log(event);
       this.$store.dispatch("card/select", {
             value: this.value
