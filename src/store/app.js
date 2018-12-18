@@ -35,6 +35,10 @@ const mutations = {
       };
     }
   },
+  SOCKET_CONNECT(state, { client }) {
+    console.log('connected')
+    _client = client;
+  },
   SET_APP_ALERT(state, payload) {
     if (payload === undefined || payload.title === "") {
       state.alert = {

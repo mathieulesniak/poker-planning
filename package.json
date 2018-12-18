@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "giphy-js-sdk-core": "^1.0.6",
     "register-service-worker": "^1.5.2",
     "socket.io": "^2.2.0",
@@ -16,8 +17,10 @@
     "vue": "^2.5.17",
     "vue-material": "^1.0.0-beta-10.2",
     "vue-router": "^3.0.1",
+    "vue-socket-io": "^0.3.2",
     "vue-socket.io": "^3.0.4",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-socketio-plugin": "^0.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",
