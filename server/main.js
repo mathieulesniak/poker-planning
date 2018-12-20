@@ -70,7 +70,7 @@ function broadcastMembersList(socket, roomName) {
         'MESSAGE',
         {
           type: 'MEMBERS_LIST',
-          payload: "sending members list broadcast" + socket.id
+          payload: room.members,
         }
       )
     })

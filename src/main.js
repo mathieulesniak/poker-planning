@@ -30,6 +30,7 @@ Vue.use(MdList);
 Vue.use(MdIcon);
 Vue.use(MdButton);
 
+console.log(router);
 new Vue({
   router,
   store,

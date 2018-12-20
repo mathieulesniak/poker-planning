@@ -82,7 +82,10 @@ export default {
     fetchGif: function() {
       this.$store.dispatch("card/fetchGif");
     },
-    flipCard: function(event) { 
+    flipCard: function(event) {
+      console.log("FLIP CARD CLICK");
+      // this.$store.dispatch("joinRoom", { roomName: "toto" });
+      /*
       this.flipped = !this.flipped;
       if (this.flipped) {
         this.fetchGif()
@@ -91,7 +94,7 @@ export default {
       this.$store.dispatch("card/select", {
             value: this.value
           });
-
+      */
     }
   }
 }

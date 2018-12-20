@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container">
+  <!-- <div class="page-container">
     <md-app md-mode="reveal">
       <md-app-toolbar class="md-primary">
         <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
@@ -34,11 +34,13 @@
         </md-list>
       </md-app-drawer>
 
-      <md-app-content>
-        <PokerCardsList :deck="cards" />
+      <md-app-content> -->
+        <router-view/>
+<!-- 
+       
       </md-app-content>
     </md-app>
-  </div>
+  </div> -->
 </template>
 
 <style lang="scss"> 
@@ -69,13 +71,15 @@
 import PokerCardsList from '@/components/CardsList'
 export default {
   name: 'Reveal',
-  components: {
-    // PokerCard,
-    PokerCardsList,
-  },
   data: () => ({
     cards: [0, 1, 2, 3, 5, 8, 13, 20, 40, 100],
     menuVisible: false
   }),
+  mounted: function() {
+    console.log("JOINING ROOM");
+    setTimeout(() => {
+      this.$store.dispatch("joinRoom", { roomName: "toto" });
+    }, 500);
+  }
 }
 </script>
